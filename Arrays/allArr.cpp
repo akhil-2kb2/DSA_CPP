@@ -75,9 +75,9 @@ int main() {
     int myArr[n]; 
     inputArray(myArr, n);
 
-    cout << "Sum Of ELEMENTS: " << sumOfElements(myArr, n) << endl;
-    cout << "Max ELEMENT: " << findMaxElement(myArr, n) << endl;
-    cout << "No Of Even Elements Are: " << countEvenNumbers(myArr, n) << endl;
+   // cout << "Sum Of ELEMENTS: " << sumOfElements(myArr, n) << endl;
+    //cout << "Max ELEMENT: " << findMaxElement(myArr, n) << endl;
+    //cout << "No Of Even Elements Are: " << countEvenNumbers(myArr, n) << endl;
     pairSum(myArr,  n);
 
     return 0;
