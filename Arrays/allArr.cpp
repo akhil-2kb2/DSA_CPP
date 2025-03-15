@@ -40,7 +40,6 @@ int countEvenNumbers(int arr[], int n) {
     return count;
 }
 // Function to match a given number with any pair of the Array
-// Function to match a given number with any pair of the Array
 void pairSum(int arr[], int n) {
     int myNum;
     cout << "Please Enter The Number For Matching pairSum: ";
@@ -64,7 +63,53 @@ void pairSum(int arr[], int n) {
         cout << "No Matching Pair Found." << endl;
     }
 }
+void arrayReverse(int arr[], int n){//without using extra space
+	// for (int i = 0; i < n/2; i++)
+	// {
+		
+	// 		int temp = 0; 
+	// 		temp = arr[(n - 1) - i];
+	// 		arr[(n - 1) - i] = arr[i];
+	// 		arr[i] = temp;
+		
+	// }
+	// for (int i = 0; i < n; i++)
+	// {
+	// 	cout  << arr[i]<< " " ;
+	// }
+	// cout << endl;
 
+	int left = 0, right = n - 1;
+	while(left < right){
+		int temp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = temp;
+		left++;
+		right--;
+	}
+	int i = 0;
+	//cout << "Here is Your Reversed Array" << endl;
+	while(i < n){
+		cout << arr[i] << " ";
+		i++;
+	}
+	cout << endl;
+}
+int getSecondLargest(int arr[], int n){
+    int first = -1;
+    int second = -1;
+    for (int i = 0; i < n; i++)
+    {
+        if(arr[i] > first){
+            second = first;
+            first = arr[i];
+        }
+        else if(arr[i] > second && arr[i] != first){
+            second = arr[i];
+        }
+    }
+    return second;
+}
 int main() {
     int n;
 
@@ -75,10 +120,13 @@ int main() {
     int myArr[n]; 
     inputArray(myArr, n);
 
-   // cout << "Sum Of ELEMENTS: " << sumOfElements(myArr, n) << endl;
+    //cout << "Sum Of ELEMENTS: " << sumOfElements(myArr, n) << endl;
     //cout << "Max ELEMENT: " << findMaxElement(myArr, n) << endl;
     //cout << "No Of Even Elements Are: " << countEvenNumbers(myArr, n) << endl;
-    pairSum(myArr,  n);
+    //pairSum(myArr,  n);
+    cout << "Reversed Array: ";
+    arrayReverse(myArr, n);
+    cout << "Second Largest Element: " << getSecondLargest(myArr, n) << endl;
 
     return 0;
 }
