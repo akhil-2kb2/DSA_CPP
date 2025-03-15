@@ -3,7 +3,7 @@ using namespace std;
 
 // Function to take array input
 void inputArray(int arr[], int n) {
-    cout << "Please Enter The " << n << " Elements:" << endl;
+    cout << "Please Enter The " << n << " Elements: ";
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
@@ -96,8 +96,8 @@ void arrayReverse(int arr[], int n){//without using extra space
 	cout << endl;
 }
 int getSecondLargest(int arr[], int n){
-    int first = -1;
-    int second = -1;
+    int first = INT_MIN;
+    int second = INT_MIN;
     for (int i = 0; i < n; i++)
     {
         if(arr[i] > first){
@@ -108,13 +108,13 @@ int getSecondLargest(int arr[], int n){
             second = arr[i];
         }
     }
-    return second;
+    return (second == INT_MIN) ? -1 : second;
 }
 int main() {
     int n;
 
     cout << "Welcome To Array Element Manipulation Zone:" << endl;
-    cout << "Please Enter Size Of The Array:" << endl;
+    cout << "Please Enter Size Of The Array: ";
     cin >> n;
 
     int myArr[n]; 
@@ -124,9 +124,16 @@ int main() {
     //cout << "Max ELEMENT: " << findMaxElement(myArr, n) << endl;
     //cout << "No Of Even Elements Are: " << countEvenNumbers(myArr, n) << endl;
     //pairSum(myArr,  n);
-    cout << "Reversed Array: ";
-    arrayReverse(myArr, n);
-    cout << "Second Largest Element: " << getSecondLargest(myArr, n) << endl;
+   // cout << "Reversed Array: ";
+   // arrayReverse(myArr, n);
+   if(getSecondLargest(myArr, n) == -1){
+       cout << "No Second Largest Element Found" << endl;
+    }
+    else{
+        cout << "Second Largest Element: " << getSecondLargest(myArr, n) << endl;
+    }
+
+
 
     return 0;
 }
