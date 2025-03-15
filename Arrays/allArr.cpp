@@ -110,6 +110,22 @@ int getSecondLargest(int arr[], int n){
     }
     return (second == INT_MIN) ? -1 : second;
 }
+//move all zero to end
+void moveZeroToEnd(int arr[], int n){
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if(arr[i] != 0){
+            swap(arr[i], arr[count]);
+            count++;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
 int main() {
     int n;
 
@@ -126,14 +142,14 @@ int main() {
     //pairSum(myArr,  n);
    // cout << "Reversed Array: ";
    // arrayReverse(myArr, n);
-   if(getSecondLargest(myArr, n) == -1){
-       cout << "No Second Largest Element Found" << endl;
-    }
-    else{
-        cout << "Second Largest Element: " << getSecondLargest(myArr, n) << endl;
-    }
+//    if(getSecondLargest(myArr, n) == -1){
+//        cout << "No Second Largest Element Found" << endl;
+//     }
+//     else{
+//         cout << "Second Largest Element: " << getSecondLargest(myArr, n) << endl;
+//     }
 
-
+    moveZeroToEnd(myArr, n);
 
     return 0;
 }
